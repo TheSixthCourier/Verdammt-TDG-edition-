@@ -1,0 +1,71 @@
+import pygame
+
+#CONSTANTS
+LEFT = 0
+RIGHT = 1
+UP = 2
+DOWN = 3
+SPACE = 4
+W = 5
+playerImage = pygame.image.load('player.png')
+keys = [False, False, False, False, False]
+
+class player:
+    def __init__(self):
+        
+        #player variables
+        self.xpos = 300
+        self.ypos = 315
+        self.vx = 0
+        self.vy = 0
+    def move(self, keys, map):
+        #LEFT MOVE
+        if keys[LEFT] == True:
+            self.vx = -5
+            print("Left")
+            print (self.xpos)
+        elif keys[RIGHT] == True: #RIGHT MOVE
+            self.vx = 5
+            print("Right")
+            print (self.xpos)
+        else:
+            self.vx = 0
+            
+            
+        if keys[UP] == True:
+            self.vy = -5
+            print("Up")
+            print (self.ypos)
+        elif keys[DOWN] == True:
+            self.vy =5
+            print("Down")
+            print (self.ypos)
+        else:
+            self.vy = 0
+        
+        self.xpos+=self.vx #updates Player X position
+        self.ypos+=self.vy
+        
+    #Collision
+
+    #Up
+        if map[int((self.ypos-5) / 50)][int((self.xpos) / 50)] == 2:
+            self.ypos+=5
+    #Down
+        if map[int((self.ypos+ 30 + 5) / 50)][int((self.xpos ) / 50)] == 3:
+            self.ypos-=5
+    #Right
+        if map[int((self.ypos) / 50)][int((self.xpos + 30) / 50)] == 4:
+            self.xpos-=5 
+    #Left
+        if map[int((self.ypos) / 50)][int((self.xpos ) / 50)] == 5:
+            self.xpos+=5 
+        
+    
+    def draw(self, screen):
+        screen.blit(playerImage, (self.xpos-10, self.ypos-10),(0, 0, 50, 50))
+
+
+
+
+
