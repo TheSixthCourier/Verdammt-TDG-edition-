@@ -8,6 +8,10 @@ DOWN = 3
 SPACE = 4
 W = 5
 playerImage = pygame.image.load('player.png')
+playerback = pygame.image.load('player back.png')
+playerleft = pygame.image.load('player left.png')
+playerright = pygame.image.load('player right.png')
+
 keys = [False, False, False, False, False]
 
 class player:
@@ -22,10 +26,12 @@ class player:
         #LEFT MOVE
         if keys[LEFT] == True:
             self.vx = -5
+            #screen.blit(playerleft, (self.xpos-10, self.ypos-10),(0, 0, 50, 50))
             print("Left")
             print (self.xpos)
         elif keys[RIGHT] == True: #RIGHT MOVE
             self.vx = 5
+            #screen.blit(playerright, (self.xpos-10, self.ypos-10),(0, 0, 50, 50))
             print("Right")
             print (self.xpos)
         else:
@@ -34,10 +40,12 @@ class player:
             
         if keys[UP] == True:
             self.vy = -5
+            #screen.blit(playerback, (self.xpos-10, self.ypos-10),(0, 0, 50, 50))
             print("Up")
             print (self.ypos)
         elif keys[DOWN] == True:
             self.vy =5
+            #screen.blit(playerImage, (self.xpos-10, self.ypos-10),(0, 0, 50, 50))
             print("Down")
             print (self.ypos)
         else:
@@ -59,12 +67,15 @@ class player:
             self.xpos-=5 
     #Left
         if map[int((self.ypos) / 50)][int((self.xpos ) / 50)] == 5:
-            self.xpos+=5 
+            self.xpos+=5
+            #with void
+        if map[int((self.ypos) / 50)][int((self.xpos ) / 50)] == 0:
+            self.xpos =225
+            self.ypos =225
         
     
     def draw(self, screen):
         screen.blit(playerImage, (self.xpos-10, self.ypos-10),(0, 0, 50, 50))
-
 
 
 
