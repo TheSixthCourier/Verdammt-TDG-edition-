@@ -28,41 +28,41 @@ mapNum = 1
 #MAP 1______________________________________________________________________________________
 map = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-       [0, 5, 2, 2, 6, 2, 4, 0, 0, 0],
-       [0, 5, 7, 7, 12, 16, 4, 0, 0, 0],
-       [0, 5, 13, 14, 15, 16, 2, 2, 4, 0],
+       [98, 98, 0, 0, 0, 0, 98, 98, 0, 0],
+       [98, 5, 2, 2, 6, 2, 4, 98, 0, 0],
+       [0, 5, 7, 7, 12, 16, 4, 0, 98, 98],
+       [0, 5, 13, 14, 15, 16, 2, 2, 4, 98],
        [0, 5, 17, 1, 1, 15, 14, 9, 4, 0],
        [0, 5, 16, 17, 18, 17, 18, 8, 4, 0],
-       [0, 22, 3, 3, 3, 3, 3, 3, 23, 0],
-       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [98, 22, 3, 3, 3, 3, 3, 3, 23, 98],
+       [98, 98, 0, 0, 0, 0, 0, 0, 98, 98],
        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],]
 #MAP 2______________________________________________________________________________________
 map2 =[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-       [0, 0, 5, 2, 2, 2, 2, 4, 0, 0],
-       [0, 0, 5, 1, 1, 1, 1, 4, 0, 0],
-       [5, 2, 2, 1, 1, 1, 1, 2, 4, 0],
-       [5, 16, 16, 1, 1, 1, 1, 1, 4, 0],
-       [5, 16, 16, 17, 1, 1, 1, 1, 4, 0],
+       [0, 98, 98, 0, 0, 98, 98, 98, 98, 0],
+       [0, 98, 5, 2, 2, 2, 2, 4, 98, 0],
+       [98, 98, 5, 1, 1, 1, 1, 4, 98, 98],
+       [5, 2, 2, 1, 1, 1, 1, 2, 4, 98],
+       [5, 16, 16, 1, 1, 1, 1, 1, 4, 98],
+       [5, 16, 16, 17, 1, 1, 1, 66, 4, 0],
        [5, 16, 16, 16, 1, 1, 1, 1, 4, 0],
-       [22, 3, 3, 3, 3, 6, 3, 3, 23, 0],
-       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [22, 3, 3, 3, 3, 6, 3, 3, 23, 98],
+       [98, 98, 0, 0, 0, 0, 0, 0, 98, 98],
        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],]
 
 #MAP 3______________________________________________________________________________________
-map3 = [[],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        []]
+map3 = [[31, 31, 30, 30, 31, 31, 30, 30, 31, 0],
+        [31, 30, 19, 59, 30, 30, 19, 59, 31, 0],
+        [5, 20, 59, 59, 10, 10, 19, 59, 31, 0],
+        [5, 20, 59, 59, 80, 10, 19, 19, 31, 0],
+        [5, 21, 25, 25, 25, 26, 19, 19, 31, 0],
+        [5, 20, 59, 59, 59, 27, 59, 19, 31, 0],
+        [5, 20, 19, 59, 59, 27, 19, 59, 31, 0],
+        [0, 59, 59, 19, 59, 27, 59, 19, 31, 0],
+        [0, 0, 0, 0, 59, 27, 59, 19, 0, 0],
+        [0, 0, 0, 0, 19, 28, 19, 59, 0, 0],
+        [0, 0, 0, 0, 0, 0, 10, 10, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
 wood = pygame.image.load('wood.png') # solid
 wood2 = pygame.image.load('L wood.png') #solid
@@ -85,9 +85,18 @@ dirt4 = pygame.image.load('dirtcorner.png')
 dirt5 = pygame.image.load('dirtcorner2.png')
 frontdoor = pygame.image.load('front door.png')
 housewall = pygame.image.load('house wall.png') #solid
+housedoor = pygame.image.load('house door.png') #solid
 grass = pygame.image.load('grass.png')
+grass2 = pygame.image.load('grass2.png')
 trees = pygame.image.load('trees.png') #solid
-Madeline = pygame.image.load('Madeline.png') #solid #interactable
+treetops = pygame.image.load('tree tops.png') #solid
+Madeline = pygame.image.load('Madeline.png') #solid #interactable]
+pathH = pygame.image.load('path H.png')
+pathV = pygame.image.load('path V.png')
+pathC = pygame.image.load('path corner.png')
+
+
+void = pygame.image.load('void.png') #solid, background
 
 
 
@@ -126,8 +135,8 @@ while not gameover:
         p1.move(keys, map)
     elif mapNum == 2:
         p1.move(keys, map2)
-    #elif mapNum == 3:
-        #p1.move(keys, map3)
+    elif mapNum == 3:
+        p1.move(keys, map3)
             
     #teleport!
         
@@ -146,12 +155,18 @@ while not gameover:
             p1.ypos = 245
         
         #from map 2 to map 3
-    #if mapNum == 2:
-        #if map2[int((p1.ypos) / 50)][int ( (p1.xpos) / 50)] == 66:
-            #mapNum = 3
-            #p1.xpos = 215
-            #p1.ypos = 245
+    if mapNum == 2:
+        if map2[int((p1.ypos) / 50)][int ( (p1.xpos) / 50)] == 66:
+            mapNum = 3
+            p1.xpos = 100
+            p1.ypos = 195
     
+        #from map 3 to map 2
+    if mapNum == 3:
+        if map2[int((p1.ypos) / 50)][int ( (p1.xpos) / 50)] == 21:
+            mapNum = 2
+            p1.xpos = 330
+            p1.ypos = 295
         
 
     #Renders-----------------------------------------------
@@ -201,6 +216,8 @@ while not gameover:
                     screen.blit(wood5, (j * 50, i * 50),(0, 0, 50, 50))
                 if map[i][j] == 23:
                     screen.blit(wood6, (j * 50, i * 50),(0, 0, 50, 50))
+                if map[i][j] == 98:
+                    screen.blit(void, (j * 50, i * 50),(0, 0, 50, 50))
     elif mapNum == 2:
         for i in range(11): #Y axis for tiles
             for j in range(10): #X axis for tiles
@@ -224,11 +241,39 @@ while not gameover:
                     screen.blit(wood5, (j * 50, i * 50),(0, 0, 50, 50))
                 if map2[i][j] == 23:
                     screen.blit(wood6, (j * 50, i * 50),(0, 0, 50, 50))
-    #elif mapNum == 3
+                if map2[i][j] == 66:
+                    screen.blit(frontdoor, (j * 50, i * 50),(0, 0, 50, 50))
+                if map2[i][j] == 98:
+                    screen.blit(void, (j * 50, i * 50),(0, 0, 50, 50))
+    elif mapNum == 3:
         for i in range(11): #Y axis for tiles
             for j in range(10): #X axis for tiles
-                if map2[i][j] == 1:
+                if map3[i][j] == 1:
                     screen.blit(floor, (j * 50, i * 50),(0, 0, 50, 50))
+                if map3[i][j] == 19:
+                    screen.blit(grass, (j * 50, i * 50),(0, 0, 50, 50))
+                if map3[i][j] == 59:
+                    screen.blit(grass2, (j * 50, i * 50),(0, 0, 50, 50))
+                if map3[i][j] == 25:
+                    screen.blit(pathH, (j * 50, i * 50),(0, 0, 50, 50))
+                if map3[i][j] == 26:
+                    screen.blit(pathC, (j * 50, i * 50),(0, 0, 50, 50))
+                if map3[i][j] == 27:
+                    screen.blit(pathV, (j * 50, i * 50),(0, 0, 50, 50))
+                if map3[i][j] == 28:
+                    screen.blit(pathV, (j * 50, i * 50),(0, 0, 50, 50))
+                if map3[i][j] == 20:
+                    screen.blit(housewall, (j * 50, i * 50),(0, 0, 50, 50))
+                if map3[i][j] == 21:
+                    screen.blit(housedoor, (j * 50, i * 50),(0, 0, 50, 50))
+                if map3[i][j] == 30:
+                    screen.blit(trees, (j * 50, i * 50),(0, 0, 50, 50))
+                if map3[i][j] == 31:
+                    screen.blit(treetops, (j * 50, i * 50),(0, 0, 50, 50))
+                if map3[i][j] == 80:
+                    screen.blit(Madeline, (j * 50, i * 33.5),(0, 0, 100, 100))
+                if map3[i][j] == 98:
+                    screen.blit(void, (j * 50, i * 50),(0, 0, 50, 50))
                     
                     
                     
